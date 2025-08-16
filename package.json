@@ -2,11 +2,18 @@
   "name": "webrtc",
   "version": "1.0.0",
   "main": "index.js",
+  "dependencies": {
+    "@roamhq/wrtc": "^0.8.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mohsen Dehbashi",
   "license": "ISC",
   "description": ""
 }
