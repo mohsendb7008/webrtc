@@ -16,5 +16,5 @@
     "test": "jest"
   },
   "author": "Mohsen Dehbashi",
-  "description": ""
+  "description": "WebRTC networking server designed to serve as a multicast relay for games and applications."
 }
