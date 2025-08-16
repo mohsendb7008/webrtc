@@ -1,0 +1,5 @@
+{
+    "signaling": {
+        "websocket-url": "http://localhost"
+    }
+}
