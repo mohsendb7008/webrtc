@@ -1,7 +1,7 @@
 {
   "name": "webrtc",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "index.html",
   "dependencies": {
     "@roamhq/wrtc": "^0.8.0",
     "lodash": "^4.17.21",
@@ -15,8 +15,6 @@
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
   "author": "Mohsen Dehbashi",
-  "license": "ISC",
   "description": ""
 }
