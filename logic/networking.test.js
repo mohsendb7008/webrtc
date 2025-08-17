@@ -1,5 +1,5 @@
 const { startWebSocketServer } = require("./ws");
-const { startRtcMockClient } = require("./client");
+const { startWebRtcClient } = require("./client");
 const { NetworkingWebRtcServer } = require("./networking");
 const { JoinRequest } = require("../data/join_request");
 const { JoinInfo } = require("../data/join_info");
@@ -25,12 +25,12 @@ describe('Test networking webrtc server', () => {
         let ch1 = '8e09b2d4-3494-40f9-9181-d8916b549db9';
         let received1;
         let onDataReceive1 = (data) => received1 = NetworkingWebRtcServer.deserialize(data);
-        let client1 = await startRtcMockClient(ch1, port, onError, onDataReceive1);
+        let client1 = await startWebRtcClient(ch1, port, onError, onDataReceive1);
         let sendData1 = (data) => client1.sendData(NetworkingWebRtcServer.serialize(data));
         let ch2 = '51176c77-0e18-4b47-b9bd-4109627a20bf';
         let received2;
         let onDataReceive2 = (data) => received2 = NetworkingWebRtcServer.deserialize(data);
-        let client2 = await startRtcMockClient(ch2, port, onError, onDataReceive2);
+        let client2 = await startWebRtcClient(ch2, port, onError, onDataReceive2);
         let sendData2 = (data) => client2.sendData(NetworkingWebRtcServer.serialize(data));
         let join1 = new JoinRequest('*', [100, 20, 3]);
         received1 = null;
@@ -80,7 +80,7 @@ describe('Test networking webrtc server', () => {
         let ch1 = '878ccb69-cc8b-4f07-b0ba-7f1e03cb5b30';
         let received1;
         let onDataReceive1 = (data) => received1 = NetworkingWebRtcServer.deserialize(data);
-        let client1 = await startRtcMockClient(ch1, port, onError, onDataReceive1);
+        let client1 = await startWebRtcClient(ch1, port, onError, onDataReceive1);
         let sendData1 = (data) => client1.sendData(NetworkingWebRtcServer.serialize(data));
         let joinRequest1 = new JoinRequest('t1,t2');
         sendData1(joinRequest1);
@@ -88,7 +88,7 @@ describe('Test networking webrtc server', () => {
         let ch2 = '9e01e9b0-c6b9-43fa-be94-11a76d23fcba';
         let received2;
         let onDataReceive2 = (data) => received2 = NetworkingWebRtcServer.deserialize(data);
-        let client2 = await startRtcMockClient(ch2, port, onError, onDataReceive2);
+        let client2 = await startWebRtcClient(ch2, port, onError, onDataReceive2);
         let sendData2 = (data) => client2.sendData(NetworkingWebRtcServer.serialize(data));
         let joinRequest2 = new JoinRequest('t2,t3');
         sendData2(joinRequest2);
@@ -96,7 +96,7 @@ describe('Test networking webrtc server', () => {
         let ch3 = '7771f8bd-0478-4d2e-8903-fe7042b4b364';
         let received3;
         let onDataReceive3 = (data) => received3 = NetworkingWebRtcServer.deserialize(data);
-        let client3 = await startRtcMockClient(ch3, port, onError, onDataReceive3);
+        let client3 = await startWebRtcClient(ch3, port, onError, onDataReceive3);
         let sendData3 = (data) => client3.sendData(NetworkingWebRtcServer.serialize(data));
         let joinRequest3 = new JoinRequest('t4,t5');
         sendData3(joinRequest3);
@@ -104,7 +104,7 @@ describe('Test networking webrtc server', () => {
         let ch4 = '375769c8-69c2-463e-a28c-a88b27747a39';
         let received4;
         let onDataReceive4 = (data) => received4 = NetworkingWebRtcServer.deserialize(data);
-        let client4 = await startRtcMockClient(ch4, port, onError, onDataReceive4);
+        let client4 = await startWebRtcClient(ch4, port, onError, onDataReceive4);
         let sendData4 = (data) => client4.sendData(NetworkingWebRtcServer.serialize(data));
         let joinRequest4 = new JoinRequest('t5,t6');
         sendData4(joinRequest4);

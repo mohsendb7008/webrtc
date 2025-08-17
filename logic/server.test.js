@@ -1,6 +1,6 @@
 const { WebRtcServer } = require("./server");
 const { startWebSocketServer } = require("./ws");
-const { startRtcMockClient } = require("./client");
+const { startWebRtcClient } = require("./client");
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 describe('Test webrtc server', () => {
@@ -23,7 +23,7 @@ describe('Test webrtc server', () => {
             console.log('Received data is: ' + data);
             receivedData = data;
         }
-        let client = await startRtcMockClient(ch, port, onError, onDataReceive);
+        let client = await startWebRtcClient(ch, port, onError, onDataReceive);
         let sendData = 'some random data';
         client.sendData(sendData);
         await delay(200);

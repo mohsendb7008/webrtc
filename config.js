@@ -1,8 +1,20 @@
-require('dotenv').config();
-const config = require('config');
+let signalingConfig;
+
+if (typeof window === 'undefined') {
+    require('dotenv').config();
+    const config = require('config');
+    signalingConfig = config.get('signaling');
+} else {
+    signalingConfig = {};
+    signalingConfig.get = (x) => {
+        if (x === 'websocket-url')
+            return window.signaling_websocket_url;
+        return signalingConfig[x];
+    };
+}
 
 function getSignalingConfig() {
-    return config.get('signaling');
+    return signalingConfig;
 }
 
 module.exports = { getSignalingConfig };

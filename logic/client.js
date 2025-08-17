@@ -4,7 +4,7 @@ const { SimpleDataMessage } = require("../message/simple");
 const { Signaler } = require("./signaling");
 const { WebRtcChannel } = require("./webrtc");
 
-async function startRtcMockClient(ch, port, onError, onData) {
+async function startWebRtcClient(ch, port, onError, onData) {
     let success = false;
     let signaler = new Signaler();
     let channel = new WebRtcChannel();
@@ -70,4 +70,4 @@ async function startRtcMockClient(ch, port, onError, onData) {
     return channel;
 }
 
-module.exports = { startRtcMockClient };
+module.exports = { startWebRtcClient };

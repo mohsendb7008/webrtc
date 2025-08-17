@@ -1,5 +1,14 @@
 require("../config");
-const { RTCPeerConnection, RTCSessionDescription, RTCIceCandidate } = require('@roamhq/wrtc');
+
+let RTCPeerConnection, RTCSessionDescription, RTCIceCandidate;
+
+if (typeof window === 'undefined') {
+    ({ RTCPeerConnection, RTCSessionDescription, RTCIceCandidate } = require('@roamhq/wrtc'));
+} else {
+    RTCPeerConnection = window.RTCPeerConnection;
+    RTCSessionDescription = window.RTCSessionDescription;
+    RTCIceCandidate = window.RTCIceCandidate;
+}
 
 class WebRtcChannel {
     constructor() {
